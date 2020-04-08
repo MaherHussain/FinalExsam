@@ -1,0 +1,83 @@
+﻿@model FinalEksamen.EventsTb
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EventsTb</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventDato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rubrik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rubrik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnderBrik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnderBrik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pris)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pris)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventImg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventImg)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

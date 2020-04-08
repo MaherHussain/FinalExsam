@@ -1,0 +1,91 @@
+﻿@model FinalEksamen.Models.MailViewModel
+@{
+    ViewBag.Title = "Kontakt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<div class="" id="contakt">
+    <div class="row">
+        <section class="col-4" id="Kontakt">
+            <h2>Kontakt Os</h2>
+            <p>Vi bestræber os at give dig svar tilbage inden for 48 timer</p>
+            <form action="/Home/Kontakt" method="post">
+
+                <label for="MailAdressFrom">Din mailadresse:</label>
+                <input type="email" class="form-control" name="MailAdressFrom" id="MailAdressFrom" />
+                @Html.ValidationMessage("MailAdressFrom")
+                <br />
+                <label for="MailName">Dit navn:</label>
+                <input type="text" class="form-control" name="MailName" id="MailName" />
+                @Html.ValidationMessageFor(model => model.MailName, "", new { @class = "text-danger" })
+                <br />
+                <label for="MailSubject">Overskrift:</label>
+                <input type="text" class="form-control" name="MailSubject" id="MailSubject" />
+                @Html.ValidationMessageFor(model => model.MailSubject, "", new { @class = "text-danger" })
+                <br />
+                <label for="MailBody">Din besked:</label>
+                <textarea rows="7" name="MailBody" class="form-control" id="MailBody"></textarea>
+                @Html.ValidationMessageFor(model => model.MailBody, "", new { @class = "text-danger" })
+                <br />
+                <input type="submit" name="btnSendMail" class="btn btn-danger" value="Send besked" />
+
+
+            </form>
+        </section>
+        <section class="col-8" id="medlem">
+            <h2>her find du vores bestyrelse medlemer</h2>
+
+            <select onchange="onchang()" class="form-control w-50 pl-5 ml-5" id="select">
+                <option Id="MyOption" value="#">Valg en medlem</option>
+                @foreach (var item in Model.BestrelseListe)
+                {
+
+                    <option Id="MyOption" value="@item.Id">@item.MedlemName</option>
+
+
+
+                }
+
+            </select>
+
+
+
+
+
+            <script type="text/javascript">
+                function onchang () {
+                   
+
+                        var s = $('select');
+                        var Id = s.val();
+                    if (Id != "#") {
+                        $("#MedlemDe").load('MedlemDe/' + Id);
+                        }
+                    
+                }
+
+
+
+
+
+
+            </script>
+
+
+            <div Id="MedlemDe" class="container">
+              
+            </div>
+
+
+
+           
+
+
+
+
+        </section>
+    </div>
+</div>
+

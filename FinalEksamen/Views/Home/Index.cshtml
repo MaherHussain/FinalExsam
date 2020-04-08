@@ -1,0 +1,24 @@
+﻿@model FinalEksamen.EventsTb
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{ 
+    //kilde https://docs.microsoft.com/en-us/dotnet/api/system.timespan?redirectedfrom=MSDN&view=netframework-4.8
+    
+    DateTime today = DateTime.Now;
+    DateTime loebdato = Model.EventDato;
+    TimeSpan span = (loebdato - today);
+    
+    String.Format("{0} days, {1} hours, {2} minutes",
+    span.Days, span.Hours, span.Minutes);
+    
+
+}
+<div id="Mycounter">
+    <h3>@span.Days dage og @span.Hours Timer og @span.Minutes Minutter til @Model.EventTitle</h3>
+</div>
+

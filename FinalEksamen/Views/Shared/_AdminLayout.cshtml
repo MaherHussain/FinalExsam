@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+@{
+    if (Session["UserId"] == null)
+    {
+        Response.Redirect("~/LogInd/Index");
+
+    }
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/MyStyleSheet.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
+    <link href="~/content/BootStrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+   
+        
+            <div class="row">
+                <div class="col-9">
+                    <header>
+
+                        <nav class="navbar navbar-expand-lg">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+                                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">EVENT <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">SPONSORE</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="#">OM RUNIT</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="#">KONTAKT OS</a>
+                                    </li>
+                                </ul>
+                                <a href="#" class="nav-link">&#10148; Advancet søg</a>
+
+
+                            </div>
+                        </nav>
+
+
+                    </header>
+                </div>
+
+                <div class="col-3" id="next">
+                    <div class="row">
+                        <div class="col-6 mt-1 ">
+                            <div class="dropdown">
+
+                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin panel
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="~/EventsTbs/Index">Events Liste</a>
+                                    <a class="dropdown-item" href="~/Bestyrelse_Tb/Index">Bestyrelse Liste</a>
+                                    <a class="dropdown-item" href="~/BestyrelseRoles/Index">BestyrelseRoles Liste</a>
+                                    <a class="dropdown-item" href="~/SponsorerTbs/Index">Sponsorer Liste</a>
+                                    <a class="dropdown-item" href="~/SponsLevelTbs/Index">SponsorerLevel Liste</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 mt-1">
+                            <a class="btn btn-danger mb-3" href="/LogInd/">LOGUD</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+
+
+
+        <div class="row">
+            <div class="container bg-dark">
+
+                <h3>Velkommen til @Session["UserName"]</h3>
+            </div>
+
+
+        </div>
+
+
+        <div>
+            @RenderBody()
+        </div>
+       
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="~/content/BootStrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@model FinalEksamen.Models.TilmeldingViewModel
+@{
+    ViewBag.Title = "VisEvent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //var plads = Model.MyEvent.PladserAntal;
+}
+
+@{ var totalplads = Model.MyEvent.PladserAntal;
+    var optageplader = Model.MyEvent.TilmedlingTbs.Where(i => i.Fk_EventId == Model.MyEvent.Id).Count(); }
+        <div class="container" id="eventdiv">
+            <div class="row">
+                <div class="col-5" id="imgdiv">
+                    <img src="~/Content/EventImg/@Model.MyEvent.EventImg" alt="Alternate Text" />
+                </div>
+                <div class="col-7">
+                    <div class="bg-danger mt-3 pl-3 text-light">
+                        <p id="pladsvisning">@optageplader ud af @totalplads er optaget  </p>
+                    </div>
+
+                    <h2>@Model.MyEvent.EventTitle</h2>
+                    <p>@Model.MyEvent.EventDato.ToString("dd/MM/yyyy kl H: mm")</p>
+                    <p>@Model.MyEvent.Rubrik</p>
+                    <p>@Model.MyEvent.UnderBrik</p>
+                    <div id="eventinfo">
+                        <P>Region:@Model.MyEvent.Region</P>
+                        <p>Afstand:@Model.MyEvent.Distance km</p>
+                        <p>Pris:@Model.MyEvent.Pris</p>
+
+                    </div>
+
+                    <div>
+                        <form action="/Home/VisEvent" method="post">
+                            <input type="email" name="Email" value="" />
+                            <input hidden type="text" name="Fk_EventId" value="@Model.MyEvent.Id" />
+                            <input type="submit" name="name" class="btn btn-danger" id="read" value="tilmeld" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>

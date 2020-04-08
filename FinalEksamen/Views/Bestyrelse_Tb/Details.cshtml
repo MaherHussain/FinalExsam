@@ -1,0 +1,61 @@
+﻿@model FinalEksamen.Bestyrelse_Tb
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container panel">
+    <h2>medlems Detalje</h2>
+
+    <div>
+        <h4>Bestyrelse_Tb</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MedlemName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedlemName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedlemBeskrivelse)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedlemBeskrivelse)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedlemImg)
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.MedlemImg)*@
+                <img src="~/Content/MedlemerImg/@Model.MedlemImg" height="300" alt="Alternate Text" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BestyrelseRole.MedlemRole)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BestyrelseRole.MedlemRole)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("rediger", "Edit", new { id = Model.Id }, new { @class="MyLink"}) |
+        @Html.ActionLink("bage til  Liste", "Index","", new { @class = "MyLink" })
+    </p>
+</div>

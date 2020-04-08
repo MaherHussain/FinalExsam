@@ -1,0 +1,35 @@
+﻿@model FinalEksamen.RoleTb
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LogIndLayout.cshtml";
+}
+<div class="container">
+    <h2>Slet Role</h2>
+
+    <h3>Er du sikker at du vil slette denne Item?</h3>
+    <div>
+        <h4>RoleTb</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Role)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Role)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Slet" class="btn btn-danger" /> |
+                @Html.ActionLink("Fortryd uden sletning", "Index")
+            </div>
+        }
+    </div>
+</div>

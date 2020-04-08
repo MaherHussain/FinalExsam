@@ -1,0 +1,17 @@
+﻿@model FinalEksamen.NewsLetterTb
+
+
+
+
+<div id="newsletter" class="row  pt-3 pb-3 mb-2">
+    <div class="col-12 newsimg ">
+        <img src="~/Content/imgs/newsletter.png" alt="Alternate Text" />
+    </div>
+    <div id="dataset" class="col-12 w-75">
+        <form action="/Home/_NewsLetter" method="post">
+            <input class="form-control mb-3" type="email" name="Email" placeholder="Indtæt din Email" />
+            <input class="MyLink w-100" type="submit" name="BtnSubmit" value="Tilmeld" />
+        </form>
+    </div>
+
+</div>

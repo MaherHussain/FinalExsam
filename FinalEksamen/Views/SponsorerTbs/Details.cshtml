@@ -1,0 +1,43 @@
+﻿@model FinalEksamen.SponsorerTb
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SponsorerTb</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SponName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SponName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sponLogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sponLogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SponsLevelTb.SponsLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SponsLevelTb.SponsLevel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

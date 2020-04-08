@@ -1,0 +1,18 @@
+﻿@model FinalEksamen.Bestyrelse_Tb
+@{
+    ViewBag.Title = "MedlemDe";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row pt-5">
+    <div class="col-6">
+        <img src="~/Content/MedlemerImg/@Model.MedlemImg" alt="Alternate Text" height="300" class="border border-dark" />
+    </div>
+    <div class="col-6">
+        <h2>@Model.MedlemName</h2>
+        <p><strong>@Model.BestyrelseRole.MedlemRole</strong></p>
+        <p>@Model.MedlemBeskrivelse</p>
+        <a href="mailto:@Model.Email" class="text-danger">@Model.Email</a>
+
+    </div>
+</div>

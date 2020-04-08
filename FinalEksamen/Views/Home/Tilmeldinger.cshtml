@@ -1,0 +1,26 @@
+﻿@model List<FinalEksamen.TilmedlingTb>
+@{
+    ViewBag.Title = "Tilmeldinger";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container bg-dark">
+    <h2>Tilmeldinger</h2>
+    <table  class="table">
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Email</td>
+            <td>@item.EventsTb.EventTitle</td>
+            <td>
+                <a class="btn-danger p-1" href="~/Home/sletTilmelding/@item.Id">Slet</a>
+                    
+                
+            </td>
+
+        </tr>
+            
+
+        }
+    </table>
+</div>

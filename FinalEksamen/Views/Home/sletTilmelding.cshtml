@@ -1,0 +1,12 @@
+﻿@model FinalEksamen.TilmedlingTb
+@{
+    ViewBag.Title = "sletTilmelding";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>du er ved at slette denne item</h2>
+
+<form action="/Home/sletTilmelding" method="post">
+    <input type="hidden" name="Id" id="Id" value="@Model.Id" />
+    <input class="btn btn-danger" type="submit" value="Slet" />
+</form>

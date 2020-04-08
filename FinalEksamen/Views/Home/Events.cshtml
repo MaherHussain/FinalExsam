@@ -1,0 +1,37 @@
+﻿@model List<FinalEksamen.EventsTb>
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" id="eventlist">
+    <div class="row">
+        <div class="col-2">
+            <h2>indkreds</h2>
+        </div>
+        <div class="col-10" id="events">
+            <h2>Alle Events</h2>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-4">
+                        <div class="card">
+                            <img src="~/Content/EventImg/@item.EventImg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.EventTitle</h5>
+                                <p class="card-text">@item.EventDato.ToString(" dd/MM/yyyy kl H: mm") </p>
+                                <p class="card-text">@item.Rubrik</p>
+
+                            </div>
+                            <p class="pris"> pris:<strong>@item.Pris kr.</strong></p>
+                            <a href="/Home/VisEvent/@item.Id" class="MyLink " id="read">Læse mere</a>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+</div>
+</div>
+   
+
+

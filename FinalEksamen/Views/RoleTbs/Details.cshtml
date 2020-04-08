@@ -1,0 +1,28 @@
+﻿@model FinalEksamen.RoleTb
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LogIndLayout.cshtml";
+}
+<div class="container">
+    <h2>Detaljer</h2>
+
+    <div>
+        <h4>Role Tb</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Role)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Role)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Rediger", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Bage til Role Liste", "Index")
+    </p>
+</div>

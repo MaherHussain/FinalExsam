@@ -1,0 +1,40 @@
+﻿@model FinalEksamen.EventsTb
+@{
+
+
+    <div class="row ">
+        <div id="HomeEvent" class="pl-2 pt-3 pb-3 mb-2">
+            <script  type="text/javascript">
+                 document.ready=function plads() {
+                    console.log("hej");
+                     var totalplads = @Model.PladserAntal;
+                     var optageplader = @Model.TilmedlingTbs.Where(i => i.Fk_EventId == Model.Id).Count();
+                     if (optageplader <= totalplads*25/100) {
+                        document.getElementById('PalceNum').innerHTML = "der er mange pladser tilbage";
+                    }
+                     else if (optageplader <= totalplads * 50 / 100 ) {
+                        document.getElementById('PalceNum').innerHTML = "der er ikke mange pladser tilbage";
+
+                    }
+                    else {
+                        document.getElementById('PalceNum').innerHTML = "der er ikke få pladser tilbage";
+                        
+                    }
+                }
+            </script>
+
+            <div onload="plads()" class="w-100 bg-danger ">
+                <p class="pl-2 text-light" id="PalceNum"></p>
+            </div>
+            <br />
+            <h2 class="w-100">@Model.EventTitle</h2>
+            <br />
+            <p class="w-100">@Model.EventDato.ToString(" dd/MM/yyyy kl H: mm") </p>
+            <p>@Model.Rubrik</p>
+            <br />
+            <br />
+            <p><strong>Pris:@Model.Pris</strong></p>
+            <a class="MyLink btn btn-danger w-100" href="">Læs Mere</a>
+        </div>
+    </div>
+    }

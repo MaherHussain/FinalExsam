@@ -1,0 +1,51 @@
+﻿@model FinalEksamen.SponsorerTb
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container panel">
+    <h2>Slet spons</h2>
+
+    <h3>Du er ved at slette denne item fra <strong>SponsorerTb</strong>. er du sikker?</h3>
+    <div>
+        <h4></h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SponName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SponName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sponLogo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sponLogo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SponsLevelTb.SponsLevel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SponsLevelTb.SponsLevel)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="slet" class="btn btn-default" /> |
+                @Html.ActionLink("Fortryd uden slettning", "Index","",new {@class="MyLink" })
+            </div>
+        }
+    </div>
+</div>

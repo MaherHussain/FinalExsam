@@ -1,0 +1,68 @@
+﻿@model FinalEksamen.Bestyrelse_Tb
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container panel">
+    <h2>slet medlem</h2>
+
+    <h3>du kommer til at slette denne medlem fra <strong>Bestyrelse_Tb</strong>. er du sikker ?</h3>
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MedlemName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedlemName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedlemBeskrivelse)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedlemBeskrivelse)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedlemImg)
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.MedlemImg)*@
+                <img src="~/Content/MedlemerImg/@Model.MedlemImg" height="200" alt="Alternate Text" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BestyrelseRole.MedlemRole)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BestyrelseRole.MedlemRole)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="slet" class="btn btn-default" /> |
+                @Html.ActionLink("fortryd uden slettning", "Index","",new {@class="MyLink" })
+            </div>
+        }
+    </div>
+</div>

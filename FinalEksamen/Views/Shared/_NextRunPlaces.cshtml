@@ -1,0 +1,6 @@
+﻿@model FinalEksamen.EventsTb
+
+
+@{ var totalplads = Model.PladserAntal;
+    var optageplader = Model.TilmedlingTbs.Where(i => i.Fk_EventId == Model.Id).Count(); }
+<p class=" text-light ">NæsteLøb:@optageplader ud af @totalplads er optaget</p>

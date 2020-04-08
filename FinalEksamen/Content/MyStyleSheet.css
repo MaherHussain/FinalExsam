@@ -1,0 +1,343 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+   
+}
+body {
+    margin: 0 auto;
+    box-sizing: border-box;
+   
+  overflow-x:hidden;
+  background: url('imgs/FOREST to THE BAY.jpg') no-repeat;
+    background-size: cover;
+    max-width:1504px;
+    color: #f5f7f8 !important;
+    font-family: 'Slabo 27px', serif;
+    
+}
+nav{
+    overflow:hidden;
+}
+#Mycounter {
+    width: 50%;
+    margin: 30px 15px;
+}
+.newsimg{
+    display:block;
+    text-align:center;
+}
+#spondiv h2{
+    text-align:center;
+}
+.sponImg img{
+    display:block;
+    width:100%;
+
+}
+#logo{
+    display:block;
+    margin-left:15px;
+}
+#newsletter{
+    background-color:rgba(0, 0, 0, 0.90)!important;
+}
+.card {
+    height: 585px;
+    margin-top: 20px;
+}
+.card-img-top{
+    height:200px !important;
+}
+.card-body{
+    background-color:#fff;
+    color:#000000;
+}
+.pris{
+    color:#000000;
+    padding-left:15px;
+    padding-bottom:3px;
+}
+#read{
+    border-radius:0 !important;
+}
+#events h2{
+    color:#000000;
+}
+#eventdiv{
+    background-color:#f5f7f8;
+    margin:15px;
+   color:#000000;
+}
+#imgdiv {
+    width: 100%;
+    
+}
+#eventinfo{
+    padding-top:30px;
+    font-weight:bold;
+}
+#imgdiv img {
+    display: block;
+    width: 100%;
+    height: 90%;
+    margin: 15px 5px;
+}
+    #eventlist {
+        margin: 15px 15px;
+        padding: 15px 15px;
+        background-color: #f5f7f8;
+    }
+#Mycounter h3 {
+    padding: 15px;
+    background-color: #cb4046;
+    font-size: 20px;
+}
+#SponsCon{
+    background-color:#f5f7f8;
+    margin:20px 13px;
+    padding:15px 0;
+}
+    #SponsCon img{
+        display:block;
+        float:left;
+        width:100%;
+        border:1px solid #000000;
+        margin:0 5px;
+    }
+#SponsCon .row{
+    margin-top:5px;
+}
+.imgrow{
+    padding:0 15px;
+}
+#SponsCon h2 {
+    background-color: #cb4046;
+    font-size: 15px;
+    padding: 5px;
+}
+#contakt {
+    background-color:#fff;
+    color:#000000;
+    margin:20px 15px;
+    padding:20px 15px;
+}
+    #contakt input[type="text"], #contakt input[type="email"] {
+        width: 60%;
+    }
+        #contakt input[type="submit"]{
+            margin:0 25%;
+            width:60%;
+        }
+.form-control {
+    color: #cb4046 !important;
+}
+.form-control:focus {
+    outline: none !important;
+    /*border: 1px solid red;*/
+    box-shadow: 0 0 10px #cb4046 !important;
+}
+#overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.51);
+}
+header {
+    background-color: #cb4046;
+    
+   
+}
+a.MyLink {
+    color: #fff ;
+    background-color: #cb4046;
+    border-radius:5px;
+    padding: 5px;
+}
+a.MyLink:hover {
+   color:#ccc;
+   
+}
+footer {
+    /*margin:0 1px;*/
+    
+    margin-right: -16px;
+    background-color: #000000 !important;
+}
+.form-control[type="search"] {
+    background-color: #cb4046 !important;
+}
+input[type="submit"] {
+    background-color: #cb4046 !important;
+    color:#ccc;
+}
+.panel {
+    background-color: rgba(0, 0, 0, 0.66) !important
+}
+.col-9 {
+    
+}
+
+.nav-link {
+    color: #f5f7f8 !important;
+}
+
+.nav-item:hover .nav-link {
+    transform: scale(1.1) !important;
+}
+
+.nav-item {
+    border-right: solid 1px #f5f7f8;
+}
+
+#next {
+    
+    /*margin-left:-30PX;*/
+    
+    background-color:rgba(0, 0, 0, 0.66);
+}
+#HomeEvent {
+   
+    background-color:#fff;
+    color:#000000;
+}
+.dropdown-menu {
+    background-color: #cb4046 !important;
+}
+    .dropdown-item:hover{
+        background-color:rgba(0, 0, 0, 0.51) !important;
+    }
+    .dropdown-item {
+        color: #d1d1d1 !important;
+    }
+.dropdown-toggle{
+    width:100% !important;
+    background-color:#da6469!important;
+    padding:10px 20px !important;
+    margin-left:5px;
+}
+
+#bottomLogo {
+    
+   
+}
+#bottomLogo img{
+    display:block;
+    
+     
+}
+#renderSec {
+    
+ 
+}
+.hidden {
+    display: none;
+}
+
+/*login styling :kilder:https://www.developerdrive.com/how-to-create-a-beautiful-login-form/*/
+#LogInd {
+    position: fixed;
+    width: 340px;
+    height: 280px;
+    top: 50%;
+    left: 50%;
+    margin-top: -140px;
+    margin-left: -170px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+    #LogInd form {
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    #LogInd label {
+        color: #555;
+        display: inline-block;
+        margin-left: 18px;
+        padding-top: 10px;
+        font-size: 14px;
+    }
+
+    #LogInd input {
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 12px;
+        outline: none;
+    }
+
+        #LogInd input[type=text],
+        #LogInd input[type=password] {
+            color: #777;
+            padding-left: 10px;
+            margin: 10px;
+            margin-top: 12px;
+            margin-left: 18px;
+            width: 290px;
+            height: 35px;
+            border: 1px solid #c7d0d2;
+            border-radius: 2px;
+            box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
+            box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
+            -webkit-transition: all .4s ease;
+            -moz-transition: all .4s ease;
+            transition: all .4s ease;
+        }
+
+#lower {
+    background: #ecf2f5;
+    width: 100%;
+    height: 69px;
+    margin-top: 44px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    z-index: -100;
+}
+
+#LogInd input[type=submit] {
+    /*float: right;*/
+    /*margin-right:20px;*/
+    margin-left: 16px;
+    margin-top: 20px;
+    width: 90%;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #cb4046; /*IE fallback*/
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cb4046), to(#da6469));
+    background-image: -moz-linear-gradient(top left 90deg, #cb4046 0%, #da6469 100%);
+    background-image: linear-gradient(top left 90deg, #cb4046 0%, #eb5c62 100%);
+    border-radius: 30px;
+    border: 1px solid #eb5c62;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
+    cursor: pointer;
+}
+
+
+
+#LogInd input[type=text]:hover,
+#LogInd input[type=password]:hover {
+    border: 1px solid #b6bfc0;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .7), 0 0 0 5px #f5f7f8;
+}
+
+#LogInd input[type=text]:focus,
+#LogInd input[type=password]:focus {
+    border: 1px solid #a8c9e4;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #e6f2f9;
+}
+
+#LogInd input[type=submit]:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cb4046), to(#ccc));
+    background-image: -moz-linear-gradient(top left 90deg, #cb4046 0%, #fff 100%);
+    background-image: linear-gradient(top left 90deg, #cb4046 0%, #fff 100%);
+}
+
+#LogInd input[type=submit]:active {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cb4046), to(#fff));
+    background-image: -moz-linear-gradient(top left 90deg, #cb4046 0%, #fff 100%);
+    background-image: linear-gradient(top left 90deg, #cb4046 0%, ##ccc 100%);
+}

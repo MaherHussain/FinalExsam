@@ -1,0 +1,451 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD4061EF-0F9E-4699-AC1C-C91ADB6AAD09}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinalEksamen</RootNamespace>
+    <AssemblyName>FinalEksamen</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\BootStrap\css\bootstrap-grid.css" />
+    <Content Include="Content\BootStrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\BootStrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\BootStrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\BootStrap\css\bootstrap.css" />
+    <Content Include="Content\BootStrap\css\bootstrap.min.css" />
+    <Content Include="Content\BootStrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\BootStrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\BootStrap\js\bootstrap.js" />
+    <Content Include="Content\BootStrap\js\bootstrap.min.js" />
+    <Content Include="Content\EventImg\dec069e2-5967-4eb7-92a0-987d17acec07-Egå Engsø Løbet.jpg" />
+    <Content Include="Content\EventImg\e2c093a5-6b1f-48d8-8de9-dee05f03b7a4-FOREST to THE BAY.jpg" />
+    <Content Include="Content\imgs\FOREST to THE BAY.jpg" />
+    <Content Include="Content\imgs\logo.jpg" />
+    <Content Include="Content\imgs\logobot.png" />
+    <Content Include="Content\imgs\newsletter.png" />
+    <Content Include="Content\MedlemerImg\04e76002-05c1-4660-955e-428c89dd70a9-claus.png" />
+    <Content Include="Content\MedlemerImg\86750287-a079-41e4-b29d-4aefa4ee9427-christian.png" />
+    <Content Include="Content\MedlemerImg\9815e887-c7f3-4ebf-a52a-5a25be4d2f50-jens.png" />
+    <Content Include="Content\MedlemerImg\d19578f9-55b0-46c1-a33b-d1ad8e87a57b-lene.png" />
+    <Content Include="Content\MedlemerImg\eb14d701-68ea-47d4-b1fe-2520200c45db-karen.png" />
+    <Content Include="Content\MedlemerImg\f6e74c7b-ae7c-4463-8a6e-564349a25b2f-joergen.png" />
+    <Content Include="Content\MyStyleSheet.css" />
+    <Content Include="Content\SponsImg\056bd131-fc7a-4348-ab06-d861a5f4fc4f-Nike.png" />
+    <Content Include="Content\SponsImg\070b5c48-6f34-49ac-b4fb-1485a1dad8c2-Pepsi.jpg" />
+    <Content Include="Content\SponsImg\1ab8f24d-9a08-4a96-9cd5-279c2621fb2c-Smukfest.jpg" />
+    <Content Include="Content\SponsImg\31311f3b-55ec-4074-b8b3-6363c3f948ab-coca-cola-logo.jpg" />
+    <Content Include="Content\SponsImg\32749fd1-4dd4-4b5a-af31-baa590fc329f-Circle.jpg" />
+    <Content Include="Content\SponsImg\3cf3c94d-f01a-44b9-b4d4-8fb9ed626b2f-Fanta.png" />
+    <Content Include="Content\SponsImg\50b5f150-b788-4fab-8612-20c2c5ed25fd-adidas-logo.jpg" />
+    <Content Include="Content\SponsImg\54e140d2-cd28-4366-8b32-20026cabc26e-Lg.png" />
+    <Content Include="Content\SponsImg\59a6c494-7835-437b-b1f5-cfa99a2c6c61-Intel.png" />
+    <Content Include="Content\SponsImg\85e5d056-88b3-4079-9103-b4f016b0cc11-Vikan.jpg" />
+    <Content Include="Content\SponsImg\bc4c6adb-4eab-43ca-adbb-5f2981c86670-7up.png" />
+    <Content Include="Content\SponsImg\e711e206-23d8-403a-9b4a-8bb3b399126e-hummel-logo.jpg" />
+    <Content Include="FinalEksamenDb.sql" />
+    <Content Include="Global.asax" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BestyrelseRole.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bestyrelse_Tb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\BestyrelseRolesController.cs" />
+    <Compile Include="Controllers\Bestyrelse_TbController.cs" />
+    <Compile Include="Controllers\EventsTbsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogIndController.cs" />
+    <Compile Include="Controllers\RoleTbsController.cs" />
+    <Compile Include="Controllers\SponsLevelTbsController.cs" />
+    <Compile Include="Controllers\SponsorerTbsController.cs" />
+    <Compile Include="Controllers\UserTbsController.cs" />
+    <Compile Include="EventsTb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="IOTools.cs" />
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\MailViewModel.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
+    <Compile Include="Models\TilmeldingViewModel.cs" />
+    <Compile Include="Mycrypt.cs" />
+    <Compile Include="NewsLetterTb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleTb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SponsLevelTb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SponsorerTb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TilmedlingTb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\BootStrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\BootStrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\BootStrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\BootStrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\BootStrap\css\bootstrap.css.map" />
+    <Content Include="Content\BootStrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\BootStrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\BootStrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\BootStrap\js\bootstrap.js.map" />
+    <Content Include="Content\BootStrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\BootStrap\scss\bootstrap-grid.scss" />
+    <Content Include="Content\BootStrap\scss\bootstrap-reboot.scss" />
+    <Content Include="Content\BootStrap\scss\bootstrap.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_alert.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_background-variant.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_badge.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_border-radius.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_buttons.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_caret.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_clearfix.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_float.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_forms.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_gradients.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_grid-framework.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_grid.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_hover.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_image.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_list-group.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_lists.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_nav-divider.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_pagination.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_reset-text.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_resize.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_screen-reader.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_size.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_table-row.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_text-emphasis.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_text-hide.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_transition.scss" />
+    <Content Include="Content\BootStrap\scss\mixins\_visibility.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_align.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_background.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_borders.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_clearfix.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_display.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_embed.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_flex.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_float.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_position.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_screenreaders.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_shadows.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_sizing.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_spacing.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_text.scss" />
+    <Content Include="Content\BootStrap\scss\utilities\_visibility.scss" />
+    <Content Include="Content\BootStrap\scss\_alert.scss" />
+    <Content Include="Content\BootStrap\scss\_badge.scss" />
+    <Content Include="Content\BootStrap\scss\_breadcrumb.scss" />
+    <Content Include="Content\BootStrap\scss\_button-group.scss" />
+    <Content Include="Content\BootStrap\scss\_buttons.scss" />
+    <Content Include="Content\BootStrap\scss\_card.scss" />
+    <Content Include="Content\BootStrap\scss\_carousel.scss" />
+    <Content Include="Content\BootStrap\scss\_close.scss" />
+    <Content Include="Content\BootStrap\scss\_code.scss" />
+    <Content Include="Content\BootStrap\scss\_custom-forms.scss" />
+    <Content Include="Content\BootStrap\scss\_dropdown.scss" />
+    <Content Include="Content\BootStrap\scss\_forms.scss" />
+    <Content Include="Content\BootStrap\scss\_functions.scss" />
+    <Content Include="Content\BootStrap\scss\_grid.scss" />
+    <Content Include="Content\BootStrap\scss\_images.scss" />
+    <Content Include="Content\BootStrap\scss\_input-group.scss" />
+    <Content Include="Content\BootStrap\scss\_jumbotron.scss" />
+    <Content Include="Content\BootStrap\scss\_list-group.scss" />
+    <Content Include="Content\BootStrap\scss\_media.scss" />
+    <Content Include="Content\BootStrap\scss\_mixins.scss" />
+    <Content Include="Content\BootStrap\scss\_modal.scss" />
+    <Content Include="Content\BootStrap\scss\_nav.scss" />
+    <Content Include="Content\BootStrap\scss\_navbar.scss" />
+    <Content Include="Content\BootStrap\scss\_pagination.scss" />
+    <Content Include="Content\BootStrap\scss\_popover.scss" />
+    <Content Include="Content\BootStrap\scss\_print.scss" />
+    <Content Include="Content\BootStrap\scss\_progress.scss" />
+    <Content Include="Content\BootStrap\scss\_reboot.scss" />
+    <Content Include="Content\BootStrap\scss\_root.scss" />
+    <Content Include="Content\BootStrap\scss\_tables.scss" />
+    <Content Include="Content\BootStrap\scss\_tooltip.scss" />
+    <Content Include="Content\BootStrap\scss\_transitions.scss" />
+    <Content Include="Content\BootStrap\scss\_type.scss" />
+    <Content Include="Content\BootStrap\scss\_utilities.scss" />
+    <Content Include="Content\BootStrap\scss\_variables.scss" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\RoleTbs\Create.cshtml" />
+    <Content Include="Views\RoleTbs\Delete.cshtml" />
+    <Content Include="Views\RoleTbs\Details.cshtml" />
+    <Content Include="Views\RoleTbs\Edit.cshtml" />
+    <Content Include="Views\RoleTbs\Index.cshtml" />
+    <Content Include="Views\UserTbs\Create.cshtml" />
+    <Content Include="Views\UserTbs\Delete.cshtml" />
+    <Content Include="Views\UserTbs\Details.cshtml" />
+    <Content Include="Views\UserTbs\Edit.cshtml" />
+    <Content Include="Views\UserTbs\Index.cshtml" />
+    <Content Include="Views\LogInd\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_LogIndLayout.cshtml" />
+    <Content Include="Views\EventsTbs\Create.cshtml" />
+    <Content Include="Views\EventsTbs\Delete.cshtml" />
+    <Content Include="Views\EventsTbs\Details.cshtml" />
+    <Content Include="Views\EventsTbs\Edit.cshtml" />
+    <Content Include="Views\EventsTbs\Index.cshtml" />
+    <Content Include="Views\BestyrelseRoles\Create.cshtml" />
+    <Content Include="Views\BestyrelseRoles\Delete.cshtml" />
+    <Content Include="Views\BestyrelseRoles\Details.cshtml" />
+    <Content Include="Views\BestyrelseRoles\Edit.cshtml" />
+    <Content Include="Views\BestyrelseRoles\Index.cshtml" />
+    <Content Include="Views\Bestyrelse_Tb\Create.cshtml" />
+    <Content Include="Views\Bestyrelse_Tb\Delete.cshtml" />
+    <Content Include="Views\Bestyrelse_Tb\Details.cshtml" />
+    <Content Include="Views\Bestyrelse_Tb\Edit.cshtml" />
+    <Content Include="Views\Bestyrelse_Tb\Index.cshtml" />
+    <Content Include="Views\SponsLevelTbs\Create.cshtml" />
+    <Content Include="Views\SponsLevelTbs\Delete.cshtml" />
+    <Content Include="Views\SponsLevelTbs\Details.cshtml" />
+    <Content Include="Views\SponsLevelTbs\Edit.cshtml" />
+    <Content Include="Views\SponsLevelTbs\Index.cshtml" />
+    <Content Include="Views\SponsorerTbs\Create.cshtml" />
+    <Content Include="Views\SponsorerTbs\Delete.cshtml" />
+    <Content Include="Views\SponsorerTbs\Details.cshtml" />
+    <Content Include="Views\SponsorerTbs\Edit.cshtml" />
+    <Content Include="Views\SponsorerTbs\Index.cshtml" />
+    <Content Include="Views\Home\Sponsore.cshtml" />
+    <Content Include="Views\Home\Kontakt.cshtml" />
+    <Content Include="Views\Home\ThankYou.cshtml" />
+    <Content Include="Views\Home\Events.cshtml" />
+    <Content Include="Views\Home\VisEvent.cshtml" />
+    <Content Include="Views\Home\Tilmeldinger.cshtml" />
+    <Content Include="Views\Home\sletTilmelding.cshtml" />
+    <Content Include="Views\Shared\_HomeEventPartial.cshtml" />
+    <Content Include="Views\Shared\_NewsLetterPartial.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_HomeSponsorPartial.cshtml" />
+    <Content Include="Views\Home\SearchResult.cshtml" />
+    <Content Include="Views\Shared\_NextRunPlaces.cshtml" />
+    <Content Include="Views\Shared\_MedlemDePArtial.cshtml" />
+    <Content Include="Views\Home\MedlemDe.cshtml" />
+    <Content Include="Views\Home\AdvanceretSoeg.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LIVE|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63768</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63768/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

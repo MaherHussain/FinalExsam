@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FinalEksamen.RoleTb>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LogIndLayout.cshtml";
+}
+<div class="container">
+    <h2>Role Liste</h2>
+
+    <p>
+        @Html.ActionLink("Opret Ny Role", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.ActionLink("Rediger", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Detalje", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Slet", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

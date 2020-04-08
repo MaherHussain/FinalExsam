@@ -1,0 +1,52 @@
+﻿@model FinalEksamen.UserTb
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Detaljer</h2>
+
+    <div>
+        <h4>UserTb</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Salt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Salt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoleTb.Role)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoleTb.Role)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Rediger", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Bage til Role Liste", "Index")
+    </p>
+</div>

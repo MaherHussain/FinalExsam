@@ -1,0 +1,94 @@
+﻿@model IEnumerable<FinalEksamen.EventsTb>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    
+}
+
+<div class="container-fluid panel" >
+    <h2>Event Liste</h2>
+
+    <p>
+        @Html.ActionLink("Opret Ny Event", "Create","",new { @class="MyLink"})
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rubrik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnderBrik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pris)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PladserAntal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventImg)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.EventTitle)
+            </td>
+            <td style="width:150px">
+                @Html.DisplayFor(modelItem => item.EventDato)
+            </td>
+            <td style="width:150px">
+                @Html.DisplayFor(modelItem => item.tid)
+            </td>
+            <td style="width:200px">
+                @Html.DisplayFor(modelItem => item.Rubrik)
+            </td>
+            <td style="width:200px"> 
+                @Html.DisplayFor(modelItem => item.UnderBrik)
+            </td>
+            <td style="width:100px">
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td style="width:100px">
+                @Html.DisplayFor(modelItem => item.Distance)
+            </td>
+            <td style="width:100px">
+                @Html.DisplayFor(modelItem => item.Pris)
+            </td>
+            <td style="width:100px">
+                @Html.DisplayFor(modelItem => item.PladserAntal)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.EventImg)*@
+                <img src="~/Content/EventImg/@item.EventImg" width="100" alt="Alternate Text" />
+            </td>
+            <td>
+                @Html.ActionLink("Rediger", "Edit", new { id = item.Id }, new { @class = "MyLink" }) |
+                @*@Html.ActionLink("Detalje", "Details", new { id = item.Id }, new { @class = "MyLink" }) |*@
+
+                @Html.ActionLink("slet", "Delete", new { id = item.Id }, new { @class = "MyLink" })
+            </td>
+        </tr>
+        }
+
+    </table>
+</div>

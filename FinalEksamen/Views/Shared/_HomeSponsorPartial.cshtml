@@ -1,0 +1,37 @@
+﻿@model FinalEksamen.SponsorerTb
+
+
+
+
+@{
+
+    if (Model.Fk_Level == 1)
+    {
+        <div class="row" style="background-color:goldenrod ;" id="spondiv">
+            <h2 class="pl-2">sponsorer</h2>
+            <div class="sponImg">
+                <img src="~/Content/SponsImg/@Model.sponLogo" alt="Alternate Text" />
+            </div>
+        </div>
+    }
+    else if (Model.Fk_Level == 2)
+    {
+        <div class="row" style="background-color:#808080;"  id="spondiv">
+            <h2 class="pl-2">sponsorer</h2>
+            <div class="sponImg">
+                <img src="~/Content/SponsImg/@Model.sponLogo" alt="Alternate Text" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row" style="background-color:#ffffff;" id="spondiv">
+            <h2 class="pl-2">sponsorer</h2>
+            <div class="sponImg">
+                <img src="~/Content/SponsImg/@Model.sponLogo" alt="Alternate Text" />
+            </div>
+        </div>
+            }
+
+
+            }

@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinalEksamenDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bestyrelse Tb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedlemName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="MedlemBeskrivelse" Type="nvarchar" MaxLength="2500" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="MedlemImg" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Fk_MedlemRole" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BestyrelseRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedlemRole" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventsTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="EventDato" Type="datetime" Nullable="false" />
+          <Property Name="tid" Type="time" Precision="4" Nullable="false" />
+          <Property Name="Rubrik" Type="nvarchar" MaxLength="2500" Nullable="false" />
+          <Property Name="UnderBrik" Type="nvarchar" MaxLength="2500" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Distance" Type="float" Nullable="false" />
+          <Property Name="PladserAntal" Type="int" />
+          <Property Name="Pris" Type="float" Nullable="false" />
+          <Property Name="EventImg" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NewsLetterTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SponsLevelTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SponsLevel" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SponsorerTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SponName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="sponLogo" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Fk_Level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TilmedlingTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Fk_EventId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Fk_Role" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bestyrelse Tb_BestyrelseRole">
+          <End Role="BestyrelseRole" Type="Self.BestyrelseRole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bestyrelse Tb" Type="Self.Bestyrelse Tb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BestyrelseRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bestyrelse Tb">
+              <PropertyRef Name="Fk_MedlemRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SponsorerTb_SponsLevelTb">
+          <End Role="SponsLevelTb" Type="Self.SponsLevelTb" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SponsorerTb" Type="Self.SponsorerTb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SponsLevelTb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SponsorerTb">
+              <PropertyRef Name="Fk_Level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TilmedlingTb_EventsTb">
+          <End Role="EventsTb" Type="Self.EventsTb" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TilmedlingTb" Type="Self.TilmedlingTb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventsTb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TilmedlingTb">
+              <PropertyRef Name="Fk_EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTb_RoleTb">
+          <End Role="RoleTb" Type="Self.RoleTb" Multiplicity="1" />
+          <End Role="UserTb" Type="Self.UserTb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleTb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTb">
+              <PropertyRef Name="Fk_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="FinalEksamenDbModelStoreContainer">
+          <EntitySet Name="Bestyrelse Tb" EntityType="Self.Bestyrelse Tb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BestyrelseRole" EntityType="Self.BestyrelseRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventsTb" EntityType="Self.EventsTb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsLetterTb" EntityType="Self.NewsLetterTb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleTb" EntityType="Self.RoleTb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SponsLevelTb" EntityType="Self.SponsLevelTb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SponsorerTb" EntityType="Self.SponsorerTb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TilmedlingTb" EntityType="Self.TilmedlingTb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTb" EntityType="Self.UserTb" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bestyrelse Tb_BestyrelseRole" Association="Self.FK_Bestyrelse Tb_BestyrelseRole">
+            <End Role="BestyrelseRole" EntitySet="BestyrelseRole" />
+            <End Role="Bestyrelse Tb" EntitySet="Bestyrelse Tb" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SponsorerTb_SponsLevelTb" Association="Self.FK_SponsorerTb_SponsLevelTb">
+            <End Role="SponsLevelTb" EntitySet="SponsLevelTb" />
+            <End Role="SponsorerTb" EntitySet="SponsorerTb" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TilmedlingTb_EventsTb" Association="Self.FK_TilmedlingTb_EventsTb">
+            <End Role="EventsTb" EntitySet="EventsTb" />
+            <End Role="TilmedlingTb" EntitySet="TilmedlingTb" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTb_RoleTb" Association="Self.FK_UserTb_RoleTb">
+            <End Role="RoleTb" EntitySet="RoleTb" />
+            <End Role="UserTb" EntitySet="UserTb" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinalEksamenDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bestyrelse_Tb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedlemName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MedlemBeskrivelse" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MedlemImg" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fk_MedlemRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BestyrelseRole" Relationship="Self.FK_Bestyrelse_Tb_BestyrelseRole" FromRole="Bestyrelse_Tb" ToRole="BestyrelseRole" />
+        </EntityType>
+        <EntityType Name="BestyrelseRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedlemRole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bestyrelse_Tb" Relationship="Self.FK_Bestyrelse_Tb_BestyrelseRole" FromRole="BestyrelseRole" ToRole="Bestyrelse_Tb" />
+        </EntityType>
+        <EntityType Name="EventsTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventDato" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tid" Type="Time" Nullable="false" Precision="4" />
+          <Property Name="Rubrik" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UnderBrik" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Distance" Type="Double" Nullable="false" />
+          <Property Name="PladserAntal" Type="Int32" />
+          <Property Name="Pris" Type="Double" Nullable="false" />
+          <Property Name="EventImg" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TilmedlingTbs" Relationship="Self.FK_TilmedlingTb_EventsTb" FromRole="EventsTb" ToRole="TilmedlingTb" />
+        </EntityType>
+        <EntityType Name="NewsLetterTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserTbs" Relationship="Self.FK_UserTb_RoleTb" FromRole="RoleTb" ToRole="UserTb" />
+        </EntityType>
+        <EntityType Name="SponsLevelTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SponsLevel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SponsorerTbs" Relationship="Self.FK_SponsorerTb_SponsLevelTb" FromRole="SponsLevelTb" ToRole="SponsorerTb" />
+        </EntityType>
+        <EntityType Name="SponsorerTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SponName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sponLogo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fk_Level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SponsLevelTb" Relationship="Self.FK_SponsorerTb_SponsLevelTb" FromRole="SponsorerTb" ToRole="SponsLevelTb" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TilmedlingTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fk_EventId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EventsTb" Relationship="Self.FK_TilmedlingTb_EventsTb" FromRole="TilmedlingTb" ToRole="EventsTb" />
+        </EntityType>
+        <EntityType Name="UserTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fk_Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RoleTb" Relationship="Self.FK_UserTb_RoleTb" FromRole="UserTb" ToRole="RoleTb" />
+        </EntityType>
+        <Association Name="FK_Bestyrelse_Tb_BestyrelseRole">
+          <End Role="BestyrelseRole" Type="Self.BestyrelseRole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bestyrelse_Tb" Type="Self.Bestyrelse_Tb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BestyrelseRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bestyrelse_Tb">
+              <PropertyRef Name="Fk_MedlemRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TilmedlingTb_EventsTb">
+          <End Role="EventsTb" Type="Self.EventsTb" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TilmedlingTb" Type="Self.TilmedlingTb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventsTb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TilmedlingTb">
+              <PropertyRef Name="Fk_EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTb_RoleTb">
+          <End Role="RoleTb" Type="Self.RoleTb" Multiplicity="1" />
+          <End Role="UserTb" Type="Self.UserTb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleTb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTb">
+              <PropertyRef Name="Fk_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SponsorerTb_SponsLevelTb">
+          <End Role="SponsLevelTb" Type="Self.SponsLevelTb" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SponsorerTb" Type="Self.SponsorerTb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SponsLevelTb">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SponsorerTb">
+              <PropertyRef Name="Fk_Level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalEksamenDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bestyrelse_Tbs" EntityType="Self.Bestyrelse_Tb" />
+          <EntitySet Name="BestyrelseRoles" EntityType="Self.BestyrelseRole" />
+          <EntitySet Name="EventsTbs" EntityType="Self.EventsTb" />
+          <EntitySet Name="NewsLetterTbs" EntityType="Self.NewsLetterTb" />
+          <EntitySet Name="RoleTbs" EntityType="Self.RoleTb" />
+          <EntitySet Name="SponsLevelTbs" EntityType="Self.SponsLevelTb" />
+          <EntitySet Name="SponsorerTbs" EntityType="Self.SponsorerTb" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TilmedlingTbs" EntityType="Self.TilmedlingTb" />
+          <EntitySet Name="UserTbs" EntityType="Self.UserTb" />
+          <AssociationSet Name="FK_Bestyrelse_Tb_BestyrelseRole" Association="Self.FK_Bestyrelse_Tb_BestyrelseRole">
+            <End Role="BestyrelseRole" EntitySet="BestyrelseRoles" />
+            <End Role="Bestyrelse_Tb" EntitySet="Bestyrelse_Tbs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TilmedlingTb_EventsTb" Association="Self.FK_TilmedlingTb_EventsTb">
+            <End Role="EventsTb" EntitySet="EventsTbs" />
+            <End Role="TilmedlingTb" EntitySet="TilmedlingTbs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTb_RoleTb" Association="Self.FK_UserTb_RoleTb">
+            <End Role="RoleTb" EntitySet="RoleTbs" />
+            <End Role="UserTb" EntitySet="UserTbs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SponsorerTb_SponsLevelTb" Association="Self.FK_SponsorerTb_SponsLevelTb">
+            <End Role="SponsLevelTb" EntitySet="SponsLevelTbs" />
+            <End Role="SponsorerTb" EntitySet="SponsorerTbs" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(FinalEksamenDbModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(FinalEksamenDbModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinalEksamenDbModelStoreContainer" CdmEntityContainer="FinalEksamenDbEntities">
+          <EntitySetMapping Name="Bestyrelse_Tbs">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.Bestyrelse_Tb">
+              <MappingFragment StoreEntitySet="Bestyrelse Tb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MedlemName" ColumnName="MedlemName" />
+                <ScalarProperty Name="MedlemBeskrivelse" ColumnName="MedlemBeskrivelse" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MedlemImg" ColumnName="MedlemImg" />
+                <ScalarProperty Name="Fk_MedlemRole" ColumnName="Fk_MedlemRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BestyrelseRoles">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.BestyrelseRole">
+              <MappingFragment StoreEntitySet="BestyrelseRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MedlemRole" ColumnName="MedlemRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventsTbs">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.EventsTb">
+              <MappingFragment StoreEntitySet="EventsTb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+                <ScalarProperty Name="EventDato" ColumnName="EventDato" />
+                <ScalarProperty Name="tid" ColumnName="tid" />
+                <ScalarProperty Name="Rubrik" ColumnName="Rubrik" />
+                <ScalarProperty Name="UnderBrik" ColumnName="UnderBrik" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="PladserAntal" ColumnName="PladserAntal" />
+                <ScalarProperty Name="Pris" ColumnName="Pris" />
+                <ScalarProperty Name="EventImg" ColumnName="EventImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsLetterTbs">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.NewsLetterTb">
+              <MappingFragment StoreEntitySet="NewsLetterTb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleTbs">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.RoleTb">
+              <MappingFragment StoreEntitySet="RoleTb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SponsLevelTbs">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.SponsLevelTb">
+              <MappingFragment StoreEntitySet="SponsLevelTb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SponsLevel" ColumnName="SponsLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SponsorerTbs">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.SponsorerTb">
+              <MappingFragment StoreEntitySet="SponsorerTb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SponName" ColumnName="SponName" />
+                <ScalarProperty Name="sponLogo" ColumnName="sponLogo" />
+                <ScalarProperty Name="Fk_Level" ColumnName="Fk_Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TilmedlingTbs">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.TilmedlingTb">
+              <MappingFragment StoreEntitySet="TilmedlingTb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fk_EventId" ColumnName="Fk_EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTbs">
+            <EntityTypeMapping TypeName="FinalEksamenDbModel.UserTb">
+              <MappingFragment StoreEntitySet="UserTb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="Fk_Role" ColumnName="Fk_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="FinalEksamenDbModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="FinalEksamenDbModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="FinalEksamenDbModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="FinalEksamenDbModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalEksamenDbModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="FinalEksamenDbModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FinalEksamenDbModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="FinalEksamenDbModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="FinalEksamenDbModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
